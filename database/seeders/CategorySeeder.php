@@ -16,11 +16,11 @@ class CategorySeeder extends Seeder
         $categories = [
             ['name' => 'Hardware', 'sla_config' => ['response_hours' => 8, 'resolution_hours' => 48, 'default_priority' => 'low']],
             ['name' => 'Software', 'sla_config' => ['response_hours' => 4, 'resolution_hours' => 24, 'default_priority' => 'medium']],
-            ['name' => 'Network', 'sla_config' => ['response_hours' => 2, 'resolution_hours' => 12, 'default_priority' => 'high']],
-            ['name' => 'Security', 'sla_config' => ['response_hours' => 1, 'resolution_hours' => 4, 'default_priority' => 'critical']],
-            ['name' => 'Access Request', 'sla_config' => ['response_hours' => 2, 'resolution_hours' => 8, 'default_priority' => 'high']],
-            ['name' => 'Email', 'sla_config' => ['response_hours' => 4, 'resolution_hours' => 24, 'default_priority' => 'medium']],
-            ['name' => 'Other', 'sla_config' => ['response_hours' => 8, 'resolution_hours' => 48, 'default_priority' => 'medium']],
+            ['name' => 'Redes', 'sla_config' => ['response_hours' => 2, 'resolution_hours' => 12, 'default_priority' => 'high']],
+            ['name' => 'Seguridad', 'sla_config' => ['response_hours' => 1, 'resolution_hours' => 4, 'default_priority' => 'critical']],
+            ['name' => 'Gestión de Accesos', 'sla_config' => ['response_hours' => 2, 'resolution_hours' => 8, 'default_priority' => 'high']],
+            ['name' => 'Correo Electrónico', 'sla_config' => ['response_hours' => 4, 'resolution_hours' => 24, 'default_priority' => 'medium']],
+            ['name' => 'Otros', 'sla_config' => ['response_hours' => 8, 'resolution_hours' => 48, 'default_priority' => 'medium']],
         ];
 
         foreach ($categories as $category) {

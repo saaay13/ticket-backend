@@ -24,7 +24,7 @@ class StoreTicketRequest extends FormRequest
             'requester_id' => 'required|exists:users,id',
             'assigned_to_id' => 'nullable|exists:users,id',
             'category_id' => 'required|exists:categories,id',
-            'status' => 'sometimes|string|in:open,in_progress,pending,resolved,closed',
+            'status' => 'sometimes|string|in:open,in_progress,pending,resolved,closed,deleted',
             'closed_at' => 'nullable|date',
             'details' => 'nullable|array',
             'total_time_minutes' => 'nullable|integer',
@@ -42,7 +42,7 @@ class StoreTicketRequest extends FormRequest
             'requester_id.exists' => 'El usuario seleccionado no es válido.',
             'category_id.required' => 'La categoría es obligatoria.',
             'category_id.exists' => 'La categoría seleccionada no existe.',
-            'status.in' => 'El estado seleccionado no es válido.',
+            'status.in' => 'The selected status is invalid.',
         ];
     }
 }

@@ -55,7 +55,7 @@ return new class extends Migration
         });
 
         if ($isPostgres) {
-            DB::statement("ALTER TABLE tickets ADD CONSTRAINT ticket_status_check CHECK (status IN ('open', 'in_progress', 'pending', 'resolved', 'closed', 'deleted'))");
+            DB::statement("ALTER TABLE tickets ADD CONSTRAINT ticket_status_check CHECK (status IN ('abierto', 'en_proceso', 'pendiente', 'resuelto', 'cerrado', 'eliminado'))");
             DB::statement('CREATE INDEX IF NOT EXISTS idx_tickets_details ON tickets USING gin(details);');
             DB::statement("CREATE INDEX IF NOT EXISTS idx_tickets_title ON tickets USING gin(to_tsvector('english', title));");
 

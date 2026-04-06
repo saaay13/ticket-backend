@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\History;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class TicketController extends Controller
 {
@@ -141,11 +143,11 @@ class TicketController extends Controller
 
         $original = $ticket->getOriginal();
         $validated = $request->validated();
-        
+
         if (isset($validated['details'])) {
             $validated['details'] = array_merge($ticket->details ?? [], $validated['details']);
         }
-        
+
         $ticket->update($validated);
         $changes = $ticket->getChanges();
 

@@ -15,15 +15,15 @@ class TemplateSeeder extends Seeder
     {
         $templates = [
             [
-                'name' => 'Default Response',
+                'name' => 'Respuesta por Defecto',
                 'type' => 'response',
-                'content' => 'Hello,\n\nThank you for contacting support. We are working on your request and will get back to you shortly.\n\nBest regards,\nSupport Team',
+                'content' => "Hola,\n\nGracias por contactar al equipo de soporte. Estamos revisando su solicitud y le responderemos a la brevedad.\n\nSaludos cordiales,\nEquipo de Soporte IT",
                 'metadata' => ['category_id' => null, 'is_public' => true, 'variables' => ['{{name}}', '{{ticket_number}}']],
             ],
             [
-                'name' => 'Internal Note',
+                'name' => 'Nota Interna',
                 'type' => 'internal_comment',
-                'content' => 'Internal note: (add your notes here)',
+                'content' => 'Nota interna: (agregue sus notas aquí)',
                 'metadata' => ['category_id' => null, 'is_public' => false, 'variables' => []],
             ],
         ];
