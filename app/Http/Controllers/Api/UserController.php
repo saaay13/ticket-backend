@@ -70,5 +70,26 @@ class UserController extends Controller
         $user->update(['active' => false]);
         return response()->json(['message' => 'Usuario desactivado con éxito']);
     }
+
+    // Listar usuarios inactivos (Papelera)
+    public function trash()
+    {
+        $users = User::with('department')
+            ->where('active', false)
+            ->orderBy('first_name')
+            ->get();
+            
+        return UserResource::collection($users);
+    }
+
+    // Reactivar usuario
+    public function restore($id)
+    {
+        $user = User::find($id);
+        if (!$user) return response()->json(['message' => 'Usuario no encontrado'], 404);
+        
+        $user->update(['active' => true]);
+        return response()->json(['message' => 'Usuario reactivado con éxito']);
+    }
 }
 

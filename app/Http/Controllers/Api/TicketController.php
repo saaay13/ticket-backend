@@ -22,8 +22,8 @@ class TicketController extends Controller
     public function metrics()
     {
         try {
-            // Rendimiento IT (Top 3 Agentes)
-            $teamMetrics = User::whereIn('role', ['admin', 'Admin', 'agent', 'Agent'])
+            // Rendimiento IT de todos los técnicos
+            $teamMetrics = User::whereIn(DB::raw('LOWER(role)'), ['admin', 'agent', 'agente', 'staff'])
                 ->withCount([
                     'ticketsAssigned as total',
                     'ticketsAssigned as resolved' => fn ($q) => $q->whereIn('status', ['resolved', 'closed', 'Resolved', 'Closed']),
@@ -72,7 +72,7 @@ class TicketController extends Controller
             }
 
             return response()->json([
-                'team' => $teamMetrics->take(3), // Limitamos al Top 3 -takeLast 
+                'team' => $teamMetrics, // Devolvemos todo el equipo para que aparezcan en el Directorio
                 'stats' => $stats,
                 'categories' => $categories,
                 'weekly' => $weeklyData

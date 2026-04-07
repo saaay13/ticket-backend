@@ -23,6 +23,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
 
     Route::apiResource('departments', DepartmentController::class);
+    Route::get('users/trash', [UserController::class, 'trash']);
+    Route::post('users/{user}/restore', [UserController::class, 'restore']);
     Route::apiResource('users', UserController::class);
     Route::apiResource('categories', CategoryController::class);
     Route::get('tickets/metrics', [TicketController::class, 'metrics']);
