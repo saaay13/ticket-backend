@@ -72,7 +72,7 @@ class TicketController extends Controller
             }
 
             return response()->json([
-                'team' => $teamMetrics->take(3), // Limitamos al Top 3
+                'team' => $teamMetrics->take(3), // Limitamos al Top 3 -takeLast 
                 'stats' => $stats,
                 'categories' => $categories,
                 'weekly' => $weeklyData
@@ -90,7 +90,7 @@ class TicketController extends Controller
         /** @var \App\Models\User|null $user */
         $user = request()->user();
         
-        $sort = request()->query('sort', 'created_at');
+        $sort = request()->query('sort', 'create_at');
         $order = request()->query('order', 'desc');
 
         $query = Ticket::with(['requester', 'assignedTo', 'category'])
